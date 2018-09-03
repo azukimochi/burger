@@ -1,14 +1,26 @@
 <h1>Order That Burger</h1>
 
 <div id="unEatenContainer">
-  {{#each burgers}}
-  <div class="existingBurger">
-    <p>
-      {{this.id}}. {{this.burger_name}}
-      <button data-burgerid="{{this.id}}" class="eatBurger">Devour!</button>
-    </p>
-  </div>
-  {{/each}}
+    {{#each burgers}}
+    <div class="existingBurger">
+        <p>
+            {{#unless devoured}}{{this.id}}. {{this.burger_name}}
+            <button data-burgerid="{{this.id}}" class="eatBurger">Devour!</button>
+            {{/unless}}
+        </p>
+    </div>
+    {{/each}}
+</div>
+
+<div id="eatenContainer">
+    <p>___________________________</p>
+    {{#each burgers}}
+    <div class="inexistentBurger">
+        <p>
+            {{#if devoured}}{{this.id}}. {{this.burger_name}}{{/if}}
+        </p>
+    </div>
+    {{/each}}
 </div>
 
 <h2>Add a New Burger</h2>
@@ -27,6 +39,21 @@ $("#addBurgerBtn").on("click", function(event) {
     $.ajax("/burgers", {
         type: "POST",
         data: newBurger
+    }).then(function() {
+        location.reload();
+    });
+});
+
+$(".eatBurger").on("click", function(event) {
+    event.preventDefault();
+    var idObj = {
+        id: $(this).data("burgerid")
+    };
+
+    console.log(`You're eating the burger whose ID is ${idObj.id}`);
+    $.ajax("/devour", {
+        type: "PUT",
+        data: idObj
     }).then(function() {
         location.reload();
     });

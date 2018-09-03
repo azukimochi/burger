@@ -15,12 +15,21 @@ module.exports = function (app) {
 
     app.post("/burgers", function(req, res) {
         orm.insertOne("burgers", "burger_name", "devoured", req.body.burger_name, false, function(result) {
-            console.log("Added new burger!");
+            console.log("A new burger has been added!");
             res.status(200).end();
         });
     });
+
+    app.put("/devour", function(req, res) {
+        orm.updateOne("burgers", "devoured", true, "id", req.body.id, function(result) {
+            console.log(`The burger with the ID of ${req.body.id} has been devoured!`);
+            res.status(200).end();
+        });
+    });
+
+
 };
 
 
-// var queryString = "INSERT INTO ?? (??, ??) VALUES (?, ?)";
-// connection.query(queryString, [table, col1, col2, burgerInput, boolean]
+// var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
+// connection.query(queryString, [table, col, boolean, idToSearch, idInput]
