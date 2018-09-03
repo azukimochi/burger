@@ -13,6 +13,13 @@ module.exports = function (app) {
         });
     });
 
+    app.get("*", function(req, res) {
+        orm.selectAll("burgers", function(result) {
+            var data = result;
+            res.render("index", {burgers: data});
+        });
+    });
+
     app.post("/burgers", function(req, res) {
         orm.insertOne("burgers", "burger_name", "devoured", req.body.burger_name, false, function(result) {
             console.log("A new burger has been added!");
