@@ -14,9 +14,11 @@ module.exports = function (app) {
     });
 
     app.post("/burgers", function(req, res) {
-        orm.insertOne("burgers", )
+        orm.insertOne("burgers", "burger_name", "devoured", req.body.burger_name, false, function(result) {
+            console.log("Added new burger!");
+            res.status(200).end();
+        });
     });
-
 };
 
 

@@ -13,7 +13,6 @@ var orm = {
         var queryString = "INSERT INTO ?? (??, ??) VALUES (?, ?)";
         connection.query(queryString, [table, col1, col2, burgerInput, boolean], function(err, result) {
             if (err) throw err;
-            console.log(result);
             cb(result);
         });
     },

@@ -14,22 +14,20 @@
 <h2>Add a New Burger</h2>
 <form id="addBurger" class="button-size">
   <textarea type="text" name="burger"></textarea>
-  <button type="submit">Add the Burger</button>
+  <button id="addBurgerBtn" type="submit">Add the Burger</button>
 </form>
 
 <script type="text/javascript">
 
-$("#addBurger").on("click", function(event) {
+$("#addBurgerBtn").on("click", function(event) {
     event.preventDefault();
     var newBurger = {
-        burger_name: $("#addBurger [name=burger]").val().trim();
+        burger_name: $("#addBurger [name=burger]").val().trim()
     };
-
     $.ajax("/burgers", {
         type: "POST",
         data: newBurger
     }).then(function() {
-        console.log("Added a new burger!");
         location.reload();
     });
 });
