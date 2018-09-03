@@ -9,12 +9,12 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var orm = require("./config/orm.js");
+var exphbs = require("express-handlebars");
 
-orm.selectAll("burgers");
-orm.insertOne("burgers", "burger_name", "devoured", "Jr. McChicken", false);
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
-
+require("./controllers/burgers_controller.js")(app);
 
 app.listen(PORT, function () {
     console.log("Server listening on: http://localhost:" + PORT);
