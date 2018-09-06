@@ -1,8 +1,24 @@
-module.exports = function (ormFunctions) {
-    var orm = require("../config/orm.js");
-    orm.selectAll("burgers");
-    orm.insertOne("burgers", "burger_name", "devoured", newBurger, false);
-    orm.updateOne("burgers", "devoured", true, "id", this.id);
+var orm = require("../config/orm.js");
+
+var ormFunctions = {
+    selectAll: function(cb) {
+        orm.selectAll("burgers", function(result) {
+            cb(result)
+        });
+    },
+    insertOne: function(col1, col2, burgerInput, boolean, cb) {
+        orm.insertOne("burgers", col1, col2, burgerInput, boolean, function(result) {
+            cb(result);
+        });
+    },
+    updateOne: function(col, boolean, idToSearch, idInput, cb) {
+        orm.updateOne("burgers", col, boolean, idToSearch, idInput, function(result) {
+            cb(result);
+        });
+    }
 };
 
 
+
+
+module.exports = ormFunctions;
