@@ -1,0 +1,10 @@
+@media screen and (max-width: 860px) {
+  #unEatenContainer {
+    position: relative;
+    width: 100%
+  }
+
+  #eatenContainer {
+      float: left;
+  }
+}

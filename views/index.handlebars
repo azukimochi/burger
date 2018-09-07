@@ -1,7 +1,9 @@
 <h1>Order That Burger</h1>
-<img src="/assets/img/burger.png">
+<div id="imageDiv">
+    <img src="/assets/img/burger.png">
+</div>
 <div id="unEatenContainer">
-    <h2>On Your Table</h2>
+    <h2 class="headers">On Your Table</h2>
     {{#each burgers}}
     <div class="existingBurger">
         <p>
@@ -11,10 +13,15 @@
         </p>
     </div>
     {{/each}}
+<h4 class="headers">Add a New Burger</h4>
+<form id="addBurger" class="button-size">
+  <textarea type="text" name="burger"></textarea>
+  <button id="addBurgerBtn" type="submit">Add the Burger</button>
+</form>
 </div>
 
 <div id="eatenContainer">
-    <h3>In your Stomach</h3>
+    <h3 class="headers">In your Stomach</h3>
     {{#each burgers}}
     <div class="inexistentBurger">
         <p>
@@ -24,11 +31,6 @@
     {{/each}}
 </div>
 
-<h2>Add a New Burger</h2>
-<form id="addBurger" class="button-size">
-  <textarea type="text" name="burger"></textarea>
-  <button id="addBurgerBtn" type="submit">Add the Burger</button>
-</form>
 
 <script type="text/javascript">
 

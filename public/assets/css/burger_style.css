@@ -1,20 +1,17 @@
-body {
-    background-color: pink;
-    color: black;
-    width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
-};
 
 img {
     max-width: 80%;
     margin-left: 10%;
     margin-right: 10%;
-};
+}
 
 h1 {
     text-align: center;
-};
+    margin-left:10%;
+    margin-right:10%;
+    margin-top: 10%;
+    font-size: 40px;
+}
 
 #unEatenContainer {
     position: absolute;
@@ -23,7 +20,7 @@ h1 {
     margin-right: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-};
+}
 
 #eatenContainer {
     float: right;
@@ -31,14 +28,28 @@ h1 {
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 10px;
-};
+}
 
-h2 {
-    margin-top: 50%;
-};
 
-#addBurger {
-    position: relative;
-    margin-top: 50%;
-};
 
+body {
+    background-color: orange;
+    color: black;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    font-family: 'Baloo Tammudu', cursive;
+}
+
+.headers {
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+h4 {
+    margin-top: 10%;
+}
+
+#imageDiv {
+    margin-left: 10%;
+}
