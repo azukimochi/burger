@@ -1,4 +1,44 @@
 body {
-    background-color: lightcoral;
+    background-color: pink;
     color: black;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
 };
+
+img {
+    max-width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+};
+
+h1 {
+    text-align: center;
+};
+
+#unEatenContainer {
+    position: absolute;
+    width: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+};
+
+#eatenContainer {
+    float: right;
+    margin-bottom: 60%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+};
+
+h2 {
+    margin-top: 50%;
+};
+
+#addBurger {
+    position: relative;
+    margin-top: 50%;
+};
+

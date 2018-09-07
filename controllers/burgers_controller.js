@@ -22,6 +22,7 @@ var router = express.Router();
         });
     });
 
+    
     router.post("/burgers", function(req, res) {
         ormFunctions.insertOne("burger_name", "devoured", req.body.burger_name, false, function(result) {
             console.log("A new burger has been added!");
